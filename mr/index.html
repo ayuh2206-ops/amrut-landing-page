@@ -50,7 +50,7 @@
 <body class="bg-background-light font-display text-[#181411] antialiased overflow-x-hidden selection:bg-primary selection:text-white">
 
     <!-- Load Firebase Config -->
-    <script src="firebase-config.js"></script>
+    <script type="module" src="firebase-config.js"></script>
 
     <!-- ================= VIEW 1: LANDING PAGE ================= -->
     <div id="landing-view">
@@ -776,6 +776,15 @@
         const CURRENT_LANGUAGE = 'marathi';
         let allLeads = [];
 
+        // Wait for Firebase to be ready
+        function waitForFirebase(callback) {
+            if (window.FirebaseDB) {
+                callback();
+            } else {
+                setTimeout(() => waitForFirebase(callback), 100);
+            }
+        }
+
         // View Management
         function showView(viewId) {
             document.querySelectorAll('[id$="-view"]').forEach(v => v.classList.add('hidden-section'));
@@ -793,15 +802,25 @@
 
         // Admin Access - Check if setup needed
         document.getElementById('admin-access-btn').addEventListener('click', async () => {
-            if (window.FirebaseDB && window.FirebaseDB.isAdminLoggedIn()) {
+            if (!window.FirebaseDB) {
+                alert('Firebase लोड होत आहे. कृपया पुन्हा प्रयत्न करा.');
+                return;
+            }
+            
+            if (window.FirebaseDB.isAdminLoggedIn()) {
                 showView('admin-panel-view');
                 refreshLeads();
             } else {
                 // Check if admin password has been set up
-                const isSetup = await window.FirebaseDB.isAdminSetup();
-                if (isSetup) {
-                    showView('admin-login-view');
-                } else {
+                try {
+                    const isSetup = await window.FirebaseDB.isAdminSetup();
+                    if (isSetup) {
+                        showView('admin-login-view');
+                    } else {
+                        showView('admin-setup-view');
+                    }
+                } catch (err) {
+                    console.error('Error checking admin setup:', err);
                     showView('admin-setup-view');
                 }
             }
