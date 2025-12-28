@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="mr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amrut Kaushalya Vikas Yojana - Digital Sales & Marketing Executive</title>
+    <title>अमृत कौशल्य विकास योजना - डिजिटल सेल्स आणि मार्केटिंग एक्झिक्यूटीव्ह</title>
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -25,7 +25,7 @@
                         "footer-bg": "#0f172a",
                     },
                     fontFamily: {
-                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "display": ["Mukta", "Noto Sans Devanagari", "Plus Jakarta Sans", "sans-serif"],
                     },
                     backgroundImage: {
                         'ticket-header': "radial-gradient(circle at 50% -20%, #f97415 0%, #0f172a 80%)",
@@ -35,6 +35,46 @@
         }
     </script>
     <style>
+        /* Devanagari Font Scaling - Makes Marathi text visually match English */
+        body {
+            font-size: 1.08rem;
+            line-height: 1.75;
+            font-weight: 500;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.25;
+            font-weight: 800;
+        }
+        /* Scale up specific text sizes for Devanagari */
+        .text-xs { font-size: 0.9rem !important; font-weight: 600 !important; }
+        .text-sm { font-size: 1rem !important; font-weight: 500 !important; }
+        .text-base { font-size: 1.15rem !important; }
+        .text-lg { font-size: 1.3rem !important; }
+        .text-xl { font-size: 1.5rem !important; }
+        .text-2xl { font-size: 1.8rem !important; }
+        .text-3xl { font-size: 2.2rem !important; }
+        .text-4xl { font-size: 2.8rem !important; }
+        .text-5xl { font-size: 3.5rem !important; }
+        .text-6xl { font-size: 4.2rem !important; }
+        
+        /* Make font weights bolder */
+        .font-medium { font-weight: 600 !important; }
+        .font-semibold { font-weight: 700 !important; }
+        .font-bold { font-weight: 800 !important; }
+        .font-extrabold { font-weight: 900 !important; }
+        .font-black { font-weight: 900 !important; }
+        
+        /* Responsive adjustments for larger screens */
+        @media (min-width: 1024px) {
+            .lg\:text-lg { font-size: 1.35rem !important; }
+            .lg\:text-xl { font-size: 1.55rem !important; }
+            .lg\:text-2xl { font-size: 1.9rem !important; }
+            .lg\:text-3xl { font-size: 2.4rem !important; }
+            .lg\:text-4xl { font-size: 3rem !important; }
+            .lg\:text-5xl { font-size: 3.8rem !important; }
+            .lg\:text-6xl { font-size: 4.5rem !important; }
+        }
+        
         @keyframes slow-ping { 75%, 100% { transform: scale(2); opacity: 0; } }
         .animate-slow-ping { animation: slow-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
         .hidden-section { display: none !important; }
@@ -67,12 +107,12 @@
             
             <div class="hidden lg:flex flex-1 justify-end gap-8 items-center">
                 <nav class="flex items-center gap-8">
-                    <a class="text-slate-head text-sm font-medium hover:text-primary transition-colors relative group" href="#home">Home</a>
-                    <a class="text-slate-head text-sm font-medium hover:text-primary transition-colors relative group" href="#about">About</a>
-                    <a class="text-slate-head text-sm font-medium hover:text-primary transition-colors relative group" href="#benefits">Benefits</a>
+                    <a class="text-slate-head text-sm font-medium hover:text-primary transition-colors relative group" href="#home">मुख्यपृष्ठ</a>
+                    <a class="text-slate-head text-sm font-medium hover:text-primary transition-colors relative group" href="#about">योजनेबद्दल</a>
+                    <a class="text-slate-head text-sm font-medium hover:text-primary transition-colors relative group" href="#benefits">फायदे</a>
                 </nav>
                 <a href="#register" class="flex cursor-pointer items-center justify-center rounded-xl h-10 px-6 bg-primary text-white text-sm font-bold shadow-sm hover:bg-orange-600 transition-colors">
-                    Check Eligibility
+                    पात्रता तपासा
                 </a>
             </div>
             
@@ -84,17 +124,17 @@
         <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="fixed inset-0 z-[60] bg-white transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col">
             <div class="flex items-center justify-between p-4 border-b border-gray-100">
-                <span class="font-bold text-lg text-slate-900">Menu</span>
+                <span class="font-bold text-lg text-slate-900">मेनू</span>
                 <button id="close-menu-btn" class="p-2 text-slate-500 hover:text-primary transition-colors">
                     <span class="material-symbols-outlined text-2xl">close</span>
                 </button>
             </div>
             <div class="flex flex-col p-6 gap-6">
-                <a class="text-lg font-medium text-slate-900 hover:text-primary" href="#home" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')">Home</a>
-                <a class="text-lg font-medium text-slate-900 hover:text-primary" href="#about" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')">About</a>
-                <a class="text-lg font-medium text-slate-900 hover:text-primary" href="#benefits" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')">Benefits</a>
+                <a class="text-lg font-medium text-slate-900 hover:text-primary" href="#home" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')">मुख्यपृष्ठ</a>
+                <a class="text-lg font-medium text-slate-900 hover:text-primary" href="#about" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')">योजनेबद्दल</a>
+                <a class="text-lg font-medium text-slate-900 hover:text-primary" href="#benefits" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')">फायदे</a>
                 <a href="#register" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')" class="w-full bg-primary text-white font-bold py-4 rounded-xl text-center shadow-lg shadow-orange-500/30">
-                    Check Eligibility
+                    पात्रता तपासा
                 </a>
             </div>
         </div>
@@ -111,26 +151,26 @@
                                 <span class="animate-slow-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                             </span>
-                            <span class="text-slate-head text-xs font-bold uppercase tracking-wide">Maharashtra Govt Approved</span>
+                            <span class="text-slate-head text-sm font-extrabold uppercase tracking-wide">महाराष्ट्र शासन मान्य</span>
                         </div>
                         
-                        <div class="flex flex-col gap-2 lg:gap-4">
-                            <h1 class="text-slate-head text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.1] tracking-tight">
-                                Amrut Kaushalya <span class="text-primary">Vikas Yojana</span>
+                        <div class="flex flex-col gap-3 lg:gap-5">
+                            <h1 class="text-slate-head text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.15] tracking-tight">
+                                अमृत कौशल्य <span class="text-primary">विकास योजना</span>
                             </h1>
-                            <p class="text-slate-600 text-base lg:text-xl font-normal leading-relaxed max-w-lg">
-                                <span class="font-bold text-slate-head">Digital Sales & Marketing Executive (Amrut DigiPreneur):</span> 100% free digital marketing training for the youth of Maharashtra.
+                            <p class="text-slate-700 text-lg lg:text-2xl font-semibold leading-relaxed max-w-xl">
+                                <span class="font-extrabold text-slate-900">डिजिटल सेल्स आणि मार्केटिंग एक्झिक्यूटीव्ह (अमृत डीजीप्रीन्यूअर):</span> महाराष्ट्रातील तरुणांसाठी १००% मोफत डिजिटल मार्केटिंग प्रशिक्षणाची सुवर्णसंधी.
                             </p>
                         </div>
                         
                         <div class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center w-full">
-                            <a href="#register" class="flex w-full sm:w-auto cursor-pointer items-center justify-center rounded-xl h-12 lg:h-14 px-8 bg-primary text-white text-base font-bold shadow-lg shadow-primary/30 hover:bg-orange-600 transition-all">
-                                <span>Start Application</span>
-                                <span class="material-symbols-outlined ml-2 text-[20px]">arrow_forward</span>
+                            <a href="#register" class="flex w-full sm:w-auto cursor-pointer items-center justify-center rounded-xl h-14 lg:h-16 px-10 bg-primary text-white text-lg font-extrabold shadow-lg shadow-primary/30 hover:bg-orange-600 transition-all">
+                                <span>अर्ज करा</span>
+                                <span class="material-symbols-outlined ml-2 text-[22px]">arrow_forward</span>
                             </a>
-                            <div class="flex items-center justify-center sm:justify-start gap-2 bg-green-50 py-2 px-4 rounded-lg border border-green-100">
-                                <span class="material-symbols-outlined text-green-600 text-[20px]">verified</span>
-                                <span class="text-slate-head font-bold text-sm">100% Scholarship</span>
+                            <div class="flex items-center justify-center sm:justify-start gap-2 bg-green-50 py-3 px-5 rounded-xl border border-green-200">
+                                <span class="material-symbols-outlined text-green-600 text-[24px]">verified</span>
+                                <span class="text-slate-900 font-extrabold text-base">१००% शिष्यवृत्ती</span>
                             </div>
                         </div>
                     </div>
@@ -147,8 +187,8 @@
                             <div class="bg-white/95 backdrop-blur-xl border border-white/40 p-4 lg:p-6 rounded-xl shadow-lg flex flex-col gap-3 w-full lg:w-80">
                                 <div class="flex items-start justify-between gap-3">
                                     <div>
-                                        <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Featured Course</p>
-                                        <h3 class="text-slate-head text-sm lg:text-lg font-bold leading-tight">Digital Sales &amp; Marketing Executive</h3>
+                                        <p class="text-sm font-extrabold text-primary uppercase tracking-wider mb-1">वैशिष्ट्यपूर्ण कोर्स</p>
+                                        <h3 class="text-slate-head text-base lg:text-xl font-extrabold leading-tight">डिजिटल सेल्स आणि मार्केटिंग एक्झिक्युटिव्ह</h3>
                                     </div>
                                     <div class="bg-primary/10 p-2 rounded-xl text-primary shrink-0">
                                         <span class="material-symbols-outlined text-[18px] lg:text-[24px]">school</span>
@@ -158,11 +198,11 @@
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center gap-2">
                                         <span class="material-symbols-outlined text-slate-400 text-[18px]">schedule</span>
-                                        <span class="text-sm font-medium text-slate-600">4 Months</span>
+                                        <span class="text-base font-bold text-slate-700">४ महिने</span>
                                     </div>
                                     <div class="flex items-center gap-2">
-                                        <span class="text-xs text-slate-400 line-through">45,000</span>
-                                        <span class="text-lg font-black text-primary">FREE</span>
+                                        <span class="text-sm text-slate-400 line-through font-semibold">₹४५,०००</span>
+                                        <span class="text-xl font-black text-primary">मोफत</span>
                                     </div>
                                 </div>
                             </div>
@@ -175,8 +215,8 @@
             <div id="about" class="py-6 lg:py-24 bg-white relative overflow-hidden w-full px-4 sm:px-6 lg:px-20 mt-4 lg:mt-12">
                 <div class="max-w-[1440px] mx-auto flex flex-col gap-6 lg:gap-12 relative z-10">
                     <div class="text-center max-w-3xl mx-auto">
-                        <h2 class="text-2xl md:text-4xl font-extrabold text-slate-head mb-2 lg:mb-4">Eligibility & <span class="text-primary">Program Benefits</span></h2>
-                        <p class="text-slate-500 text-sm lg:text-lg">Unlock your potential with the Amrut Kaushalya Udhyam Vikas Yojana.</p>
+                        <h2 class="text-2xl md:text-4xl font-extrabold text-slate-head mb-2 lg:mb-4">पात्रता आणि <span class="text-primary">कार्यक्रमाचे फायदे</span></h2>
+                        <p class="text-slate-500 text-sm lg:text-lg">अमृत कौशल्य उद्यम विकास योजनेद्वारे तुमची क्षमता ओळखा.</p>
                     </div>
                     
                     <!-- Mobile Optimized Grid -->
@@ -187,12 +227,12 @@
                             <div class="relative z-10">
                                 <div class="flex items-start justify-between mb-3 lg:mb-4">
                                     <span class="inline-flex items-center gap-2 px-2 lg:px-3 py-1 rounded-full bg-white/10 text-xs font-bold uppercase tracking-wider text-primary border border-white/10">
-                                        Who Can Apply?
+                                        कोण अर्ज करू शकते?
                                     </span>
                                     <span class="material-symbols-outlined text-white/20 text-2xl lg:text-4xl">groups</span>
                                 </div>
-                                <h3 class="text-xl lg:text-3xl font-bold leading-tight mb-2 text-white">Open Category (EWS)</h3>
-                                <p class="text-slate-300 text-sm lg:text-lg">Exclusively for Economically Weaker Sections (EWS) within the Open Category.</p>
+                                <h3 class="text-xl lg:text-3xl font-bold leading-tight mb-2 text-white">खुला प्रवर्ग (EWS)</h3>
+                                <p class="text-slate-300 text-sm lg:text-lg">हा उपक्रम केवळ खुल्या प्रवर्गातील आर्थिकदृष्ट्या दुर्बल घटकांसाठी (EWS) आहे.</p>
                             </div>
                         </div>
 
@@ -202,29 +242,29 @@
                                 <div class="size-10 lg:size-12 rounded-xl lg:rounded-2xl bg-white/20 flex items-center justify-center mb-3">
                                     <span class="material-symbols-outlined text-2xl lg:text-3xl">redeem</span>
                                 </div>
-                                <h3 class="text-xl lg:text-2xl font-bold mb-1">What You Get</h3>
-                                <p class="text-orange-100 text-xs lg:text-sm">Comprehensive support for your career.</p>
+                                <h3 class="text-xl lg:text-2xl font-bold mb-1">तुम्हाला काय मिळेल</h3>
+                                <p class="text-orange-100 text-xs lg:text-sm">तुमच्या करिअरसाठी सर्वसमावेशक पाठिंबा.</p>
                             </div>
                             <ul class="flex-1 flex flex-col gap-3 lg:gap-4 relative z-10">
                                 <li class="flex items-start gap-3 p-2 lg:p-3 rounded-xl lg:rounded-2xl bg-black/10 border border-white/5">
                                     <span class="material-symbols-outlined text-white shrink-0 text-[18px] lg:text-[24px]">check_circle</span>
                                     <div>
-                                        <p class="font-bold text-sm lg:text-base">100% Free Training</p>
-                                        <p class="text-xs text-orange-100 opacity-80">No hidden costs.</p>
+                                        <p class="font-bold text-sm lg:text-base">१००% मोफत प्रशिक्षण</p>
+                                        <p class="text-xs text-orange-100 opacity-80">कोणताही छुपा खर्च नाही.</p>
                                     </div>
                                 </li>
                                 <li class="flex items-start gap-3 p-2 lg:p-3 rounded-xl lg:rounded-2xl bg-black/10 border border-white/5">
                                     <span class="material-symbols-outlined text-white shrink-0 text-[18px] lg:text-[24px]">workspace_premium</span>
                                     <div>
-                                        <p class="font-bold text-sm lg:text-base">Govt Certificate</p>
-                                        <p class="text-xs text-orange-100 opacity-80">State recognized.</p>
+                                        <p class="font-bold text-sm lg:text-base">शासकीय प्रमाणपत्र</p>
+                                        <p class="text-xs text-orange-100 opacity-80">राज्य शासन मान्य.</p>
                                     </div>
                                 </li>
                                 <li class="flex items-start gap-3 p-2 lg:p-3 rounded-xl lg:rounded-2xl bg-black/10 border border-white/5">
                                     <span class="material-symbols-outlined text-white shrink-0 text-[18px] lg:text-[24px]">work</span>
                                     <div>
-                                        <p class="font-bold text-sm lg:text-base">Job Ready</p>
-                                        <p class="text-xs text-orange-100 opacity-80">Placement support.</p>
+                                        <p class="font-bold text-sm lg:text-base">नोकरीसाठी सज्ज</p>
+                                        <p class="text-xs text-orange-100 opacity-80">प्लेसमेंट सहाय्य.</p>
                                     </div>
                                 </li>
                             </ul>
@@ -238,9 +278,9 @@
                                 </div>
                             </div>
                             <div>
-                                <p class="text-slate-500 text-xs font-semibold mb-1 uppercase tracking-wide">Annual Income</p>
-                                <h4 class="text-xl lg:text-3xl font-extrabold text-slate-900">&lt; 8 Lakhs</h4>
-                                <p class="text-xs text-slate-400 mt-1">Valid certificate required</p>
+                                <p class="text-slate-500 text-xs font-semibold mb-1 uppercase tracking-wide">वार्षिक उत्पन्न</p>
+                                <h4 class="text-xl lg:text-3xl font-extrabold text-slate-900">&lt; ८ लाख</h4>
+                                <p class="text-xs text-slate-400 mt-1">वैध प्रमाणपत्र आवश्यक</p>
                             </div>
                         </div>
 
@@ -252,9 +292,9 @@
                                 </div>
                             </div>
                             <div>
-                                <p class="text-slate-500 text-xs font-semibold mb-1 uppercase tracking-wide">Resident</p>
-                                <h4 class="text-lg lg:text-2xl font-extrabold text-slate-900">Maharashtra</h4>
-                                <p class="text-xs text-slate-400 mt-1">Domicile Mandatory</p>
+                                <p class="text-slate-500 text-xs font-semibold mb-1 uppercase tracking-wide">रहिवासी</p>
+                                <h4 class="text-lg lg:text-2xl font-extrabold text-slate-900">महाराष्ट्र</h4>
+                                <p class="text-xs text-slate-400 mt-1">अधिवास प्रमाणपत्र अनिवार्य</p>
                             </div>
                         </div>
 
@@ -264,20 +304,20 @@
                                 <div class="size-8 lg:size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                                     <span class="material-symbols-outlined text-[18px] lg:text-[24px]">school</span>
                                 </div>
-                                <h3 class="text-lg lg:text-xl font-bold text-slate-900">Minimum Qualification</h3>
+                                <h3 class="text-lg lg:text-xl font-bold text-slate-900">किमान पात्रता</h3>
                             </div>
                             <div class="flex flex-wrap gap-2 lg:gap-3">
                                 <div class="flex items-center gap-2 px-3 lg:px-5 py-2 lg:py-3 rounded-lg lg:rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-semibold text-sm">
                                     <span class="material-symbols-outlined text-primary text-[16px] lg:text-[20px]">looks_two</span>
-                                    <span>12th Pass</span>
+                                    <span>१२ वी उत्तीर्ण</span>
                                 </div>
                                 <div class="flex items-center gap-2 px-3 lg:px-5 py-2 lg:py-3 rounded-lg lg:rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-semibold text-sm">
                                     <span class="material-symbols-outlined text-primary text-[16px] lg:text-[20px]">history_edu</span>
-                                    <span>Graduate</span>
+                                    <span>पदवीधर</span>
                                 </div>
                                 <div class="flex items-center gap-2 px-3 lg:px-5 py-2 lg:py-3 rounded-lg lg:rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-semibold text-sm">
                                     <span class="material-symbols-outlined text-primary text-[16px] lg:text-[20px]">engineering</span>
-                                    <span>Diploma</span>
+                                    <span>पदविका</span>
                                 </div>
                             </div>
                         </div>
@@ -290,9 +330,9 @@
                                 </div>
                             </div>
                             <div>
-                                <p class="text-slate-500 text-xs font-semibold mb-1 uppercase tracking-wide">Age Limit</p>
-                                <h4 class="text-xl lg:text-3xl font-extrabold text-slate-900">18 - 45</h4>
-                                <p class="text-xs text-slate-400 mt-1">Years</p>
+                                <p class="text-slate-500 text-xs font-semibold mb-1 uppercase tracking-wide">वयोमर्यादा</p>
+                                <h4 class="text-xl lg:text-3xl font-extrabold text-slate-900">१८ - ४५</h4>
+                                <p class="text-xs text-slate-400 mt-1">वर्षे</p>
                             </div>
                         </div>
 
@@ -302,83 +342,83 @@
                                 <div class="size-8 lg:size-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
                                     <span class="material-symbols-outlined text-[18px] lg:text-[24px]">folder_open</span>
                                 </div>
-                                <h3 class="text-lg lg:text-xl font-bold text-slate-900">Required Documents</h3>
+                                <h3 class="text-lg lg:text-xl font-bold text-slate-900">आवश्यक कागदपत्रे</h3>
                             </div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-3">
                                 <div class="flex items-center gap-2">
                                     <span class="material-symbols-outlined text-green-500 text-[16px] lg:text-[20px]">check_circle</span>
-                                    <p class="text-slate-600 text-xs lg:text-sm">State Domicile Certificate</p>
+                                    <p class="text-slate-600 text-xs lg:text-sm">राज्याचे अधिवास प्रमाणपत्र</p>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <span class="material-symbols-outlined text-green-500 text-[16px] lg:text-[20px]">check_circle</span>
-                                    <p class="text-slate-600 text-xs lg:text-sm">Income Certificate (&lt; 8L)</p>
+                                    <p class="text-slate-600 text-xs lg:text-sm">उत्पन्नाचा दाखला (&lt; ८ लाख)</p>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <span class="material-symbols-outlined text-green-500 text-[16px] lg:text-[20px]">check_circle</span>
-                                    <p class="text-slate-600 text-xs lg:text-sm">Caste / EWS Certificate</p>
+                                    <p class="text-slate-600 text-xs lg:text-sm">जातीचा / EWS प्रमाणपत्र</p>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <span class="material-symbols-outlined text-green-500 text-[16px] lg:text-[20px]">check_circle</span>
-                                    <p class="text-slate-600 text-xs lg:text-sm">Education Proof</p>
+                                    <p class="text-slate-600 text-xs lg:text-sm">शिक्षणाचा पुरावा</p>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <span class="material-symbols-outlined text-green-500 text-[16px] lg:text-[20px]">check_circle</span>
-                                    <p class="text-slate-600 text-xs lg:text-sm">Aadhaar & PAN Card</p>
+                                    <p class="text-slate-600 text-xs lg:text-sm">आधार आणि पॅन कार्ड</p>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <span class="material-symbols-outlined text-green-500 text-[16px] lg:text-[20px]">check_circle</span>
-                                    <p class="text-slate-600 text-xs lg:text-sm">Passport Photo</p>
+                                    <p class="text-slate-600 text-xs lg:text-sm">पासपोर्ट फोटो</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Card: Target Group - Full Width -->
+                        <!-- Card: Target Group (योजनेचा लक्षगट) - Full Width -->
                         <div class="col-span-2 lg:col-span-3 rounded-2xl lg:rounded-3xl bg-gradient-to-br from-amber-800 to-amber-900 text-white p-4 lg:p-8 shadow-xl">
                             <div class="flex items-center gap-3 mb-4">
                                 <div class="size-10 lg:size-12 rounded-xl bg-white/20 flex items-center justify-center">
                                     <span class="material-symbols-outlined text-2xl lg:text-3xl">groups</span>
                                 </div>
                                 <div>
-                                    <h3 class="text-xl lg:text-2xl font-bold">Target Group</h3>
-                                    <p class="text-amber-200 text-xs lg:text-sm">Eligible Communities</p>
+                                    <h3 class="text-xl lg:text-2xl font-bold">योजनेचा लक्षगट</h3>
+                                    <p class="text-amber-200 text-xs lg:text-sm">Target Group</p>
                                 </div>
                             </div>
                             
                             <p class="text-amber-100 text-sm lg:text-base mb-4 leading-relaxed">
-                                This scheme is for communities in Maharashtra's Open Category who do not receive benefits from any independent government department/organization/corporation - Economically Weaker Sections (EWS) of the Open Category.
+                                महाराष्ट्रातील खुल्या प्रवर्गातील ज्या जातींना कुठल्याही स्वतंत्र शासकीय विभाग / संस्था / महामंडळामार्फत योजनांचा लाभ मिळत नाही अशा खुल्या प्रवर्गातील आर्थिकदृष्ट्या दुर्बल घटकांतील गटातील
                             </p>
                             
                             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-3 mb-4">
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">1. Brahmin</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">2. Bania</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">3. Rajpurohit</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">4. Kamma</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">5. Kayastha</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">6. Iyengar</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">7. Nair</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">8. Naidu</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">9. Patidar</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">10. Bengali</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">11. Patel</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">12. Yelmar</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">13. Marwari</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">14. Thakur</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">15. Tyagi</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">16. Sengunthar</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">17. Gujarati (Arya Vaishya)</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">18. Jat</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">19. Sindhi</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">20. Kanbi</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">21. Rajput</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">22. Komati</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">23. Bhumihar</div>
-                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">24. Hindu Nepali</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">१. ब्राह्मण</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">२. बनिया</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">३. राजपुरोहित</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">४. कम्मा</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">५. कायस्थ</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">६. अय्यंगार</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">७. नायर</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">८. नायडू</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">९. पाटीदार</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">१०. बंगाली</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">११. पटेल</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">१२. येलमार</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">१३. मारवाडी</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">१४. ठाकूर</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">१५. त्यागी</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">१६. सेनगुनथर</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">१७. गुजराथी (आर्य वैश्य)</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">१८. जाट</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">१९. सिंधी</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">२०. कानबी</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">२१. राजपूत</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">२२. कोमटी</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">२३. भूमीहार</div>
+                                <div class="bg-white/10 rounded-lg px-3 py-2 text-sm">२४. हिंदू नेपाळी</div>
                             </div>
                             
                             <div class="bg-white/20 rounded-xl p-3 lg:p-4 border border-white/10">
                                 <p class="text-amber-100 text-sm lg:text-base">
                                     <span class="material-symbols-outlined text-amber-300 text-[18px] align-middle mr-1">info</span>
-                                    Young men, women and others from these communities who are interested in training are eligible to apply.
+                                    या जातीच्या युवक, युवती व इतर जे प्रशिक्षणासाठी घेण्यास इच्छुक आहेत असे उमेदवार
                                 </p>
                             </div>
                         </div>
@@ -395,13 +435,13 @@
                         <div>
                             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-primary text-xs font-bold uppercase tracking-wider mb-3 border border-orange-200">
                                 <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                                Admissions Closing Soon
+                                प्रवेश लवकरच बंद होत आहेत
                             </div>
                             <h2 class="text-2xl lg:text-5xl font-extrabold text-slate-head leading-tight mb-3">
-                                Ready to Start Your <span class="text-primary">Digital Journey?</span>
+                                तुमचा डिजिटल प्रवास <span class="text-primary">सुरू करण्यास तयार आहात?</span>
                             </h2>
                             <p class="text-slate-600 text-sm lg:text-lg leading-relaxed">
-                                Complete this registration to verify your eligibility. Once verified, we will guide you to the official government portal.
+                                तुमची पात्रता पडताळण्यासाठी ही प्राथमिक नोंदणी पूर्ण करा. एकदा पडताळणी झाली की, आम्ही तुम्हाला अधिकृत सरकारी पोर्टलवर मार्गदर्शन करू.
                             </p>
                         </div>
 
@@ -411,8 +451,8 @@
                                     <span class="material-symbols-outlined text-[28px]">currency_rupee</span>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-slate-head text-lg">Zero Cost</h4>
-                                    <p class="text-slate-500 text-sm">100% Government sponsored scholarship.</p>
+                                    <h4 class="font-bold text-slate-head text-lg">शून्य खर्च</h4>
+                                    <p class="text-slate-500 text-sm">१००% सरकार प्रायोजित शिष्यवृत्ती.</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4">
@@ -420,8 +460,8 @@
                                     <span class="material-symbols-outlined text-[28px]">school</span>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-slate-head text-lg">Govt Certification</h4>
-                                    <p class="text-slate-500 text-sm">Recognized certification upon completion.</p>
+                                    <h4 class="font-bold text-slate-head text-lg">शासकीय प्रमाणपत्र</h4>
+                                    <p class="text-slate-500 text-sm">अभ्यासक्रम पूर्ण झाल्यावर मान्यताप्राप्त प्रमाणपत्र.</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4">
@@ -429,8 +469,8 @@
                                     <span class="material-symbols-outlined text-[28px]">rocket_launch</span>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-slate-head text-lg">Placement Support</h4>
-                                    <p class="text-slate-500 text-sm">Assistance with job placement.</p>
+                                    <h4 class="font-bold text-slate-head text-lg">प्लेसमेंट सहाय्य</h4>
+                                    <p class="text-slate-500 text-sm">नोकरी आणि स्वयंरोजगारासाठी मदत.</p>
                                 </div>
                             </div>
                         </div>
@@ -445,10 +485,10 @@
                                     <div class="relative z-10 flex flex-col items-center text-center space-y-2">
                                         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-2">
                                             <span class="material-symbols-outlined text-primary text-[16px]">verified</span>
-                                            <span class="text-xs font-semibold tracking-wider text-white/90 uppercase">Official Application</span>
+                                            <span class="text-xs font-semibold tracking-wider text-white/90 uppercase">अधिकृत अर्ज तिकीट</span>
                                         </div>
-                                        <h2 class="text-white text-xl md:text-2xl font-bold leading-tight">Secure Your Seat</h2>
-                                        <p class="text-blue-100/80 text-sm">Preliminary Registration Form</p>
+                                        <h2 class="text-white text-xl md:text-2xl font-bold leading-tight">तुमची जागा निश्चित करा</h2>
+                                        <p class="text-blue-100/80 text-sm">प्राथमिक नोंदणी फॉर्म</p>
                                     </div>
                                 </div>
                                 
@@ -464,15 +504,15 @@
                                     <div class="flex flex-col gap-1">
                                         <label class="text-slate-900 text-sm font-semibold flex items-center gap-2">
                                             <span class="material-symbols-outlined text-gray-400 text-[16px]">badge</span>
-                                            Full Name
+                                            उमेदवाराचे पूर्ण नाव
                                         </label>
-                                        <input id="fullName" name="fullName" class="form-input w-full rounded-lg border border-gray-300 bg-gray-50 h-11 px-4 text-base text-slate-900 placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary" required placeholder="As per Aadhar" type="text"/>
+                                        <input id="fullName" name="fullName" class="form-input w-full rounded-lg border border-gray-300 bg-gray-50 h-11 px-4 text-base text-slate-900 placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary" required placeholder="आधार कार्डवरील नाव टाका" type="text"/>
                                     </div>
                                     
                                     <div class="flex flex-col gap-1">
                                         <label class="text-slate-900 text-sm font-semibold flex items-center gap-2">
                                             <span class="material-symbols-outlined text-gray-400 text-[16px]">smartphone</span>
-                                            Mobile Number
+                                            मोबाईल क्रमांक
                                         </label>
                                         <div class="relative">
                                             <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 font-medium text-sm border-r border-gray-300 pr-2">+91</span>
@@ -483,15 +523,15 @@
                                     <div class="flex flex-col gap-1">
                                         <label class="text-slate-900 text-sm font-semibold flex items-center gap-2">
                                             <span class="material-symbols-outlined text-gray-400 text-[16px]">mail</span>
-                                            Email Address
+                                            ईमेल पत्ता
                                         </label>
-                                        <input id="email" name="email" class="form-input w-full rounded-lg border border-gray-300 bg-gray-50 h-11 px-4 text-base text-slate-900 placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary" required placeholder="example@email.com" type="email"/>
+                                        <input id="email" name="email" class="form-input w-full rounded-lg border border-gray-300 bg-gray-50 h-11 px-4 text-base text-slate-900 placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary" required placeholder="candidate@example.com" type="email"/>
                                     </div>
 
                                     <div class="flex flex-col gap-1">
                                         <label class="text-slate-900 text-sm font-semibold flex items-center gap-2">
                                             <span class="material-symbols-outlined text-gray-400 text-[16px]">calendar_month</span>
-                                            Date of Birth
+                                            जन्म तारीख
                                         </label>
                                         <input id="dob" name="dob" class="form-input w-full rounded-lg border border-gray-300 bg-gray-50 h-11 px-4 text-base text-slate-900 focus:border-primary focus:ring-1 focus:ring-primary" required type="date"/>
                                     </div>
@@ -499,46 +539,46 @@
                                     <div class="flex flex-col gap-1">
                                         <label class="text-slate-900 text-sm font-semibold flex items-center gap-2">
                                             <span class="material-symbols-outlined text-gray-400 text-[16px]">category</span>
-                                            Category
+                                            प्रवर्ग
                                         </label>
                                         <select id="category" name="category" class="form-select w-full rounded-lg border border-gray-300 bg-gray-50 h-11 px-4 text-base text-slate-900 focus:border-primary focus:ring-1 focus:ring-primary" required>
-                                            <option value="" disabled selected>Select your Category</option>
-                                            <option value="Brahmin">Brahmin</option>
-                                            <option value="Bania">Bania</option>
-                                            <option value="Rajpurohit">Rajpurohit</option>
-                                            <option value="Kamma">Kamma</option>
-                                            <option value="Kayastha">Kayastha</option>
-                                            <option value="Iyengar">Iyengar</option>
-                                            <option value="Nair">Nair</option>
-                                            <option value="Naidu">Naidu</option>
-                                            <option value="Patidar">Patidar</option>
-                                            <option value="Bengali">Bengali</option>
-                                            <option value="Patel">Patel</option>
-                                            <option value="Yelmar">Yelmar</option>
-                                            <option value="Marwari">Marwari</option>
-                                            <option value="Thakur">Thakur</option>
-                                            <option value="Tyagi">Tyagi</option>
-                                            <option value="Sengunthar">Sengunthar</option>
-                                            <option value="Gujarati">Gujarati</option>
-                                            <option value="Jat">Jat</option>
-                                            <option value="Sindhi">Sindhi</option>
-                                            <option value="Kanbi">Kanbi</option>
-                                            <option value="Komati">Komati</option>
-                                            <option value="Bhumihar">Bhumihar</option>
-                                            <option value="Hindu Nepali">Hindu Nepali</option>
+                                            <option value="" disabled selected>तुमचा प्रवर्ग निवडा</option>
+                                            <option value="Brahmin">ब्राह्मण</option>
+                                            <option value="Bania">बनिया</option>
+                                            <option value="Rajpurohit">राजपुरोहित</option>
+                                            <option value="Kamma">कम्मा</option>
+                                            <option value="Kayastha">कायस्थ</option>
+                                            <option value="Iyengar">अय्यंगार</option>
+                                            <option value="Nair">नायर</option>
+                                            <option value="Naidu">नायडू</option>
+                                            <option value="Patidar">पाटीदार</option>
+                                            <option value="Bengali">बंगाली</option>
+                                            <option value="Patel">पटेल</option>
+                                            <option value="Yelmar">येलमार</option>
+                                            <option value="Marwari">मारवाडी</option>
+                                            <option value="Thakur">ठाकूर</option>
+                                            <option value="Tyagi">त्यागी</option>
+                                            <option value="Sengunthar">सेंगुंथर</option>
+                                            <option value="Gujarati">गुजराती</option>
+                                            <option value="Jat">जाट</option>
+                                            <option value="Sindhi">सिंधी</option>
+                                            <option value="Kanbi">कणबी</option>
+                                            <option value="Komati">कोमटी</option>
+                                            <option value="Bhumihar">भूमिहार</option>
+                                            <option value="Hindu Nepali">हिंदू नेपाळी</option>
                                         </select>
                                     </div>
                                     
                                     <div class="pt-2">
                                         <button type="submit" class="w-full bg-primary hover:bg-orange-600 text-white font-bold h-12 rounded-lg shadow-lg shadow-orange-500/30 flex items-center justify-center gap-2 transition-all">
-                                            <span>Verify Eligibility &amp; Proceed</span>
+                                            <span>पात्रता तपासा आणि पुढे जा</span>
                                             <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                                         </button>
                                     </div>
                                     
                                     <div class="flex items-center justify-center gap-2 text-xs text-gray-500 bg-gray-50 py-2 rounded-full">
                                         <span class="material-symbols-outlined text-[14px] text-green-600">lock</span>
-                                        <span>Data secure & used for scholarship only.</span>
+                                        <span>माहिती सुरक्षित आणि फक्त शिष्यवृत्तीसाठी वापरली जाईल.</span>
                                     </div>
                                 </form>
                             </div>
@@ -554,22 +594,22 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                     <div class="flex flex-col gap-4 text-center md:text-left">
                         <h2 class="text-xl md:text-2xl font-bold tracking-tight text-white">
-                            Amrut Kaushalya Udhyam Vikas Yojana
+                            अमृत कौशल्य उद्यम विकास योजना
                         </h2>
                         <p class="text-slate-400 text-sm max-w-md mx-auto md:mx-0">
-                            Empowering the Youth of Maharashtra through Future-Ready Digital Skills.
+                            भविष्यातील डिजिटल कौशल्ये आणि उद्योजकतेद्वारे महाराष्ट्रातील तरुणांचे सक्षमीकरण.
                         </p>
                     </div>
                     <div class="flex flex-col gap-6 items-center md:items-end text-center md:text-right">
                         <div class="flex flex-col items-center md:items-end gap-1">
-                            <span class="uppercase tracking-widest text-xs font-semibold text-primary/90">Training Partner</span>
+                            <span class="uppercase tracking-widest text-xs font-semibold text-primary/90">अधिकृत प्रशिक्षण भागीदार</span>
                             <div class="bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-2 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-primary text-xl">verified_user</span>
-                                <span class="font-semibold text-white text-sm">Dnyanjyoti EduTech Pvt Ltd</span>
+                                <span class="font-semibold text-white text-sm">ज्ञानज्योती एडुटेक प्रा. लि.</span>
                             </div>
                         </div>
                         <div class="flex flex-col items-center md:items-end gap-1">
-                            <span class="text-slate-400 text-sm">Need help? Call</span>
+                            <span class="text-slate-400 text-sm">मदतीची गरज आहे? कॉल करा</span>
                             <a class="flex items-center gap-2 text-xl font-bold text-white hover:text-primary transition-colors" href="tel:8956851214">
                                 <span class="material-symbols-outlined">call</span>
                                 89568 51214
@@ -579,10 +619,10 @@
                 </div>
                 <div class="w-full h-px bg-slate-800 my-6"></div>
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-                    <p>© 2024 Amrut Scheme. All rights reserved.</p>
+                    <p>© २०२४ अमृत योजना. सर्व हक्क राखीव.</p>
                     <div class="flex gap-6">
-                        <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
-                        <a class="hover:text-primary transition-colors" href="#">Terms</a>
+                        <a class="hover:text-primary transition-colors" href="#">गोपनीयता धोरण</a>
+                        <a class="hover:text-primary transition-colors" href="#">सेवा अटी</a>
                         <!-- Hidden Admin Access -->
                         <button id="admin-access-btn" class="opacity-30 hover:opacity-100 transition-opacity text-xs">Admin</button>
                     </div>
@@ -598,26 +638,26 @@
                 <div class="size-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce-slow shadow-lg shadow-green-500/30">
                     <span class="material-symbols-outlined text-white text-[32px] font-bold">check</span>
                 </div>
-                <h2 class="text-2xl font-bold text-white mb-1">Registration Successful!</h2>
-                <p class="text-blue-100 text-sm">Thank you for applying.</p>
+                <h2 class="text-2xl font-bold text-white mb-1">नोंदणी यशस्वी!</h2>
+                <p class="text-blue-100 text-sm">अर्ज केल्याबद्दल धन्यवाद.</p>
             </div>
             <div class="p-8">
                 <div class="mb-8 text-center">
-                    <p class="text-slate-900 text-lg font-bold mb-2">Next Step: Join the Community</p>
-                    <p class="text-gray-600 text-sm">Join our WhatsApp group for batch schedule and instructions.</p>
+                    <p class="text-slate-900 text-lg font-bold mb-2">पुढची पायरी: कम्युनिटीमध्ये सामील व्हा</p>
+                    <p class="text-gray-600 text-sm">बॅच वेळ आणि सूचनांसाठी व्हॉट्सॲप ग्रुपमध्ये सामील व्हा.</p>
                 </div>
                 <a href="https://chat.whatsapp.com/CmLHaAI7MM86ZIxbaMZPPv" target="_blank" class="flex items-center gap-4 p-5 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-lg transition-all group">
                     <div class="size-12 bg-white/20 rounded-full flex items-center justify-center">
                         <span class="material-symbols-outlined text-[28px]">groups</span>
                     </div>
                     <div class="flex-grow">
-                        <h4 class="font-bold text-lg">Join WhatsApp Group</h4>
-                        <p class="text-sm text-green-50 opacity-90">Click here to join</p>
+                        <h4 class="font-bold text-lg">व्हॉट्सॲप ग्रुपमध्ये सामील व्हा</h4>
+                        <p class="text-sm text-green-50 opacity-90">सामील होण्यासाठी येथे क्लिक करा</p>
                     </div>
                     <span class="material-symbols-outlined text-[24px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
                 </a>
                 <div class="mt-8 text-center">
-                    <p class="text-xs text-gray-400">Need help? Call <a href="tel:8956851214" class="text-primary font-bold hover:underline">89568 51214</a></p>
+                    <p class="text-xs text-gray-400">मदतीची गरज आहे? कॉल करा <a href="tel:8956851214" class="text-primary font-bold hover:underline">89568 51214</a></p>
                 </div>
             </div>
         </div>
@@ -628,28 +668,28 @@
         <div class="max-w-md w-full bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200">
             <div class="bg-gradient-to-br from-primary to-orange-600 p-6 text-center">
                 <span class="material-symbols-outlined text-white text-[48px] mb-2">security</span>
-                <h2 class="text-xl font-bold text-white">First Time Setup</h2>
-                <p class="text-orange-100 text-sm">Create your admin password</p>
+                <h2 class="text-xl font-bold text-white">प्रथम सेटअप</h2>
+                <p class="text-orange-100 text-sm">तुमचा अॅडमिन पासवर्ड तयार करा</p>
             </div>
             <form id="adminSetupForm" class="p-6 flex flex-col gap-4">
                 <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 text-sm text-blue-800">
                     <span class="material-symbols-outlined text-[16px] align-middle mr-1">info</span>
-                    This is a one-time setup. Your password will be securely stored in Firestore.
+                    हा एकवेळचा सेटअप आहे. तुमचा पासवर्ड Firestore मध्ये सुरक्षितपणे साठवला जाईल.
                 </div>
                 <div class="flex flex-col gap-1">
-                    <label class="text-slate-700 text-sm font-semibold">Create Password</label>
-                    <input id="setupPassword" class="form-input w-full rounded-lg border border-gray-300 bg-gray-50 h-11 px-4" required placeholder="Enter new password" type="password" minlength="6"/>
+                    <label class="text-slate-700 text-sm font-semibold">पासवर्ड तयार करा</label>
+                    <input id="setupPassword" class="form-input w-full rounded-lg border border-gray-300 bg-gray-50 h-11 px-4" required placeholder="नवीन पासवर्ड टाका" type="password" minlength="6"/>
                 </div>
                 <div class="flex flex-col gap-1">
-                    <label class="text-slate-700 text-sm font-semibold">Confirm Password</label>
-                    <input id="setupConfirmPassword" class="form-input w-full rounded-lg border border-gray-300 bg-gray-50 h-11 px-4" required placeholder="Confirm password" type="password" minlength="6"/>
+                    <label class="text-slate-700 text-sm font-semibold">पासवर्ड पुष्टी करा</label>
+                    <input id="setupConfirmPassword" class="form-input w-full rounded-lg border border-gray-300 bg-gray-50 h-11 px-4" required placeholder="पासवर्ड पुन्हा टाका" type="password" minlength="6"/>
                 </div>
                 <div id="setupError" class="text-red-500 text-sm hidden"></div>
                 <button type="submit" class="w-full bg-primary hover:bg-orange-600 text-white font-bold h-12 rounded-lg flex items-center justify-center gap-2 transition-all">
-                    <span>Set Password & Continue</span>
+                    <span>पासवर्ड सेट करा आणि पुढे जा</span>
                     <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                 </button>
-                <button type="button" onclick="showView('landing-view')" class="text-slate-500 text-sm hover:text-primary">← Back to site</button>
+                <button type="button" onclick="showView('landing-view')" class="text-slate-500 text-sm hover:text-primary">← साइटवर परत जा</button>
             </form>
         </div>
     </div>
@@ -659,20 +699,20 @@
         <div class="max-w-md w-full bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200">
             <div class="bg-slate-900 p-6 text-center">
                 <span class="material-symbols-outlined text-primary text-[48px] mb-2">admin_panel_settings</span>
-                <h2 class="text-xl font-bold text-white">Admin Login</h2>
-                <p class="text-slate-400 text-sm">English Page Dashboard</p>
+                <h2 class="text-xl font-bold text-white">अॅडमिन लॉगिन</h2>
+                <p class="text-slate-400 text-sm">मराठी पेज डॅशबोर्ड</p>
             </div>
             <form id="adminLoginForm" class="p-6 flex flex-col gap-4">
                 <div class="flex flex-col gap-1">
-                    <label class="text-slate-700 text-sm font-semibold">Password</label>
-                    <input id="adminPassword" class="form-input w-full rounded-lg border border-gray-300 bg-gray-50 h-11 px-4" required placeholder="Enter admin password" type="password"/>
+                    <label class="text-slate-700 text-sm font-semibold">पासवर्ड</label>
+                    <input id="adminPassword" class="form-input w-full rounded-lg border border-gray-300 bg-gray-50 h-11 px-4" required placeholder="अॅडमिन पासवर्ड टाका" type="password"/>
                 </div>
-                <div id="loginError" class="text-red-500 text-sm hidden">Invalid password</div>
+                <div id="loginError" class="text-red-500 text-sm hidden">चुकीचा पासवर्ड</div>
                 <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold h-12 rounded-lg flex items-center justify-center gap-2 transition-all">
-                    <span>Login</span>
+                    <span>लॉगिन</span>
                     <span class="material-symbols-outlined text-[18px]">login</span>
                 </button>
-                <button type="button" onclick="showView('landing-view')" class="text-slate-500 text-sm hover:text-primary">← Back to site</button>
+                <button type="button" onclick="showView('landing-view')" class="text-slate-500 text-sm hover:text-primary">← साइटवर परत जा</button>
             </form>
         </div>
     </div>
@@ -686,7 +726,7 @@
                     <span class="material-symbols-outlined text-primary text-[32px]">admin_panel_settings</span>
                     <div>
                         <h1 class="font-bold text-slate-900 text-lg">Admin Dashboard</h1>
-                        <p class="text-slate-500 text-xs">English Page Leads</p>
+                        <p class="text-slate-500 text-xs">Marathi Page Leads</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-3">
@@ -761,7 +801,6 @@
                             </tr>
                         </thead>
                         <tbody id="leadsTableBody" class="divide-y divide-slate-100">
-                            <!-- Leads will be populated here -->
                         </tbody>
                     </table>
                 </div>
@@ -814,7 +853,7 @@
     </div>
 
     <script>
-        const CURRENT_LANGUAGE = 'english';
+        const CURRENT_LANGUAGE = 'marathi';
         let allLeads = [];
 
         // Wait for Firebase to be ready
@@ -844,7 +883,7 @@
         // Admin Access - Check if setup needed
         document.getElementById('admin-access-btn').addEventListener('click', async () => {
             if (!window.FirebaseDB) {
-                alert('Firebase is still loading. Please try again.');
+                alert('Firebase लोड होत आहे. कृपया पुन्हा प्रयत्न करा.');
                 return;
             }
             
@@ -876,20 +915,20 @@
             
             // Validate passwords match
             if (password !== confirmPassword) {
-                errorDiv.textContent = 'Passwords do not match';
+                errorDiv.textContent = 'पासवर्ड जुळत नाहीत';
                 errorDiv.classList.remove('hidden');
                 return;
             }
             
             // Validate minimum length
             if (password.length < 6) {
-                errorDiv.textContent = 'Password must be at least 6 characters';
+                errorDiv.textContent = 'पासवर्ड किमान ६ अक्षरांचा असावा';
                 errorDiv.classList.remove('hidden');
                 return;
             }
             
             const btn = this.querySelector('button[type="submit"]');
-            btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span> Setting up...';
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span> सेटअप होत आहे...';
             btn.disabled = true;
             
             try {
@@ -901,15 +940,15 @@
                     showView('admin-panel-view');
                     refreshLeads();
                 } else {
-                    errorDiv.textContent = 'Error setting up password. Please try again.';
+                    errorDiv.textContent = 'पासवर्ड सेटअप करताना त्रुटी. कृपया पुन्हा प्रयत्न करा.';
                     errorDiv.classList.remove('hidden');
                 }
             } catch (err) {
-                errorDiv.textContent = 'Error: ' + err.message;
+                errorDiv.textContent = 'त्रुटी: ' + err.message;
                 errorDiv.classList.remove('hidden');
             }
             
-            btn.innerHTML = '<span>Set Password & Continue</span><span class="material-symbols-outlined text-[18px]">arrow_forward</span>';
+            btn.innerHTML = '<span>पासवर्ड सेट करा आणि पुढे जा</span><span class="material-symbols-outlined text-[18px]">arrow_forward</span>';
             btn.disabled = false;
         });
 
@@ -920,7 +959,7 @@
             const errorDiv = document.getElementById('loginError');
             
             const btn = this.querySelector('button[type="submit"]');
-            btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span> Verifying...';
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span> तपासत आहे...';
             btn.disabled = true;
             
             try {
@@ -930,15 +969,15 @@
                     showView('admin-panel-view');
                     refreshLeads();
                 } else {
-                    errorDiv.textContent = 'Invalid password';
+                    errorDiv.textContent = 'चुकीचा पासवर्ड';
                     errorDiv.classList.remove('hidden');
                 }
             } catch (err) {
-                errorDiv.textContent = 'Error: ' + err.message;
+                errorDiv.textContent = 'त्रुटी: ' + err.message;
                 errorDiv.classList.remove('hidden');
             }
             
-            btn.innerHTML = '<span>Login</span><span class="material-symbols-outlined text-[18px]">login</span>';
+            btn.innerHTML = '<span>लॉगिन</span><span class="material-symbols-outlined text-[18px]">login</span>';
             btn.disabled = false;
         });
 
@@ -953,7 +992,7 @@
             e.preventDefault();
             
             const btn = this.querySelector('button[type="submit"]');
-            btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span> Processing...';
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span> प्रक्रिया होत आहे...';
             btn.disabled = true;
             
             const leadData = {
@@ -1129,7 +1168,7 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `leads_english_${new Date().toISOString().split('T')[0]}.csv`;
+            a.download = `leads_marathi_${new Date().toISOString().split('T')[0]}.csv`;
             a.click();
         }
     </script>
