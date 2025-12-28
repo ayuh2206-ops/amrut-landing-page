@@ -1,18 +1,23 @@
-// Firebase Configuration - Replace with your actual Firebase config
+// Firebase Configuration for Amrut Landing Page
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, updateDoc, deleteDoc, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-analytics.js";
+
+// Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyCjsPDcYzObBISbqaztQwlYrRh5C3FI7_M",
+    authDomain: "amrut-landing-page.firebaseapp.com",
+    projectId: "amrut-landing-page",
+    storageBucket: "amrut-landing-page.firebasestorage.app",
+    messagingSenderId: "382434375710",
+    appId: "1:382434375710:web:0546b37a48007d62a2960f",
+    measurementId: "G-DSP36N286Z"
 };
 
-// Initialize Firebase - Uncomment these lines after adding your config
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-// import { getFirestore, collection, addDoc, getDocs, updateDoc, deleteDoc, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
-// const app = initializeApp(firebaseConfig);
-// const db = getFirestore(app);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const analytics = getAnalytics(app);
 
 // Collection names
 const COLLECTIONS = {
@@ -33,14 +38,9 @@ const ADMIN_DOC_ID = 'credentials';
  */
 async function isAdminSetup() {
     try {
-        // Uncomment for Firebase
-        // const docRef = doc(db, COLLECTIONS.ADMIN_SETTINGS, ADMIN_DOC_ID);
-        // const docSnap = await getDoc(docRef);
-        // return docSnap.exists() && docSnap.data().passwordHash;
-        
-        // localStorage placeholder
-        const adminData = localStorage.getItem('admin_credentials');
-        return adminData !== null;
+        const docRef = doc(db, COLLECTIONS.ADMIN_SETTINGS, ADMIN_DOC_ID);
+        const docSnap = await getDoc(docRef);
+        return docSnap.exists() && docSnap.data().passwordHash;
     } catch (error) {
         console.error('Error checking admin setup:', error);
         return false;
@@ -53,23 +53,14 @@ async function isAdminSetup() {
  */
 async function setupAdminPassword(password) {
     try {
-        // Simple hash function (for production, use proper hashing like bcrypt on server)
         const passwordHash = await hashPassword(password);
         
-        // Uncomment for Firebase
-        // const docRef = doc(db, COLLECTIONS.ADMIN_SETTINGS, ADMIN_DOC_ID);
-        // await setDoc(docRef, {
-        //     passwordHash: passwordHash,
-        //     createdAt: new Date().toISOString(),
-        //     updatedAt: new Date().toISOString()
-        // });
-        
-        // localStorage placeholder
-        localStorage.setItem('admin_credentials', JSON.stringify({
+        const docRef = doc(db, COLLECTIONS.ADMIN_SETTINGS, ADMIN_DOC_ID);
+        await setDoc(docRef, {
             passwordHash: passwordHash,
             createdAt: new Date().toISOString(),
             updatedAt: new Date().toISOString()
-        }));
+        });
         
         return true;
     } catch (error) {
@@ -85,18 +76,10 @@ async function verifyAdminPassword(password) {
     try {
         const passwordHash = await hashPassword(password);
         
-        // Uncomment for Firebase
-        // const docRef = doc(db, COLLECTIONS.ADMIN_SETTINGS, ADMIN_DOC_ID);
-        // const docSnap = await getDoc(docRef);
-        // if (docSnap.exists() && docSnap.data().passwordHash === passwordHash) {
-        //     sessionStorage.setItem('adminLoggedIn', 'true');
-        //     return true;
-        // }
-        // return false;
+        const docRef = doc(db, COLLECTIONS.ADMIN_SETTINGS, ADMIN_DOC_ID);
+        const docSnap = await getDoc(docRef);
         
-        // localStorage placeholder
-        const adminData = JSON.parse(localStorage.getItem('admin_credentials') || '{}');
-        if (adminData.passwordHash === passwordHash) {
+        if (docSnap.exists() && docSnap.data().passwordHash === passwordHash) {
             sessionStorage.setItem('adminLoggedIn', 'true');
             return true;
         }
@@ -112,31 +95,20 @@ async function verifyAdminPassword(password) {
  */
 async function changeAdminPassword(currentPassword, newPassword) {
     try {
-        // First verify current password
         const currentHash = await hashPassword(currentPassword);
         
-        // Uncomment for Firebase
-        // const docRef = doc(db, COLLECTIONS.ADMIN_SETTINGS, ADMIN_DOC_ID);
-        // const docSnap = await getDoc(docRef);
-        // if (!docSnap.exists() || docSnap.data().passwordHash !== currentHash) {
-        //     return { success: false, message: 'Current password is incorrect' };
-        // }
-        // const newHash = await hashPassword(newPassword);
-        // await updateDoc(docRef, {
-        //     passwordHash: newHash,
-        //     updatedAt: new Date().toISOString()
-        // });
+        const docRef = doc(db, COLLECTIONS.ADMIN_SETTINGS, ADMIN_DOC_ID);
+        const docSnap = await getDoc(docRef);
         
-        // localStorage placeholder
-        const adminData = JSON.parse(localStorage.getItem('admin_credentials') || '{}');
-        if (adminData.passwordHash !== currentHash) {
+        if (!docSnap.exists() || docSnap.data().passwordHash !== currentHash) {
             return { success: false, message: 'Current password is incorrect' };
         }
         
         const newHash = await hashPassword(newPassword);
-        adminData.passwordHash = newHash;
-        adminData.updatedAt = new Date().toISOString();
-        localStorage.setItem('admin_credentials', JSON.stringify(adminData));
+        await updateDoc(docRef, {
+            passwordHash: newHash,
+            updatedAt: new Date().toISOString()
+        });
         
         return { success: true, message: 'Password changed successfully' };
     } catch (error) {
@@ -147,7 +119,6 @@ async function changeAdminPassword(currentPassword, newPassword) {
 
 /**
  * Simple hash function using SHA-256
- * For production, use proper server-side hashing with bcrypt
  */
 async function hashPassword(password) {
     const encoder = new TextEncoder();
@@ -190,17 +161,8 @@ async function saveLead(leadData, language = 'english') {
     };
     
     try {
-        // Uncomment for Firebase
-        // const docRef = await addDoc(collection(db, collectionName), lead);
-        // return docRef.id;
-        
-        // localStorage placeholder
-        const leads = JSON.parse(localStorage.getItem(collectionName) || '[]');
-        const id = 'lead_' + Date.now();
-        lead.id = id;
-        leads.push(lead);
-        localStorage.setItem(collectionName, JSON.stringify(leads));
-        return id;
+        const docRef = await addDoc(collection(db, collectionName), lead);
+        return docRef.id;
     } catch (error) {
         console.error('Error saving lead:', error);
         throw error;
@@ -214,16 +176,11 @@ async function getLeads(language = 'english') {
     const collectionName = language === 'marathi' ? COLLECTIONS.MARATHI : COLLECTIONS.ENGLISH;
     
     try {
-        // Uncomment for Firebase
-        // const querySnapshot = await getDocs(collection(db, collectionName));
-        // const leads = [];
-        // querySnapshot.forEach((doc) => {
-        //     leads.push({ id: doc.id, ...doc.data() });
-        // });
-        // return leads.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-        
-        // localStorage placeholder
-        const leads = JSON.parse(localStorage.getItem(collectionName) || '[]');
+        const querySnapshot = await getDocs(collection(db, collectionName));
+        const leads = [];
+        querySnapshot.forEach((docSnap) => {
+            leads.push({ id: docSnap.id, ...docSnap.data() });
+        });
         return leads.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
     } catch (error) {
         console.error('Error getting leads:', error);
@@ -243,17 +200,8 @@ async function updateLead(leadId, updates, language = 'english') {
     };
     
     try {
-        // Uncomment for Firebase
-        // const docRef = doc(db, collectionName, leadId);
-        // await updateDoc(docRef, updateData);
-        
-        // localStorage placeholder
-        const leads = JSON.parse(localStorage.getItem(collectionName) || '[]');
-        const index = leads.findIndex(l => l.id === leadId);
-        if (index !== -1) {
-            leads[index] = { ...leads[index], ...updateData };
-            localStorage.setItem(collectionName, JSON.stringify(leads));
-        }
+        const docRef = doc(db, collectionName, leadId);
+        await updateDoc(docRef, updateData);
     } catch (error) {
         console.error('Error updating lead:', error);
         throw error;
@@ -267,14 +215,8 @@ async function deleteLead(leadId, language = 'english') {
     const collectionName = language === 'marathi' ? COLLECTIONS.MARATHI : COLLECTIONS.ENGLISH;
     
     try {
-        // Uncomment for Firebase
-        // const docRef = doc(db, collectionName, leadId);
-        // await deleteDoc(docRef);
-        
-        // localStorage placeholder
-        const leads = JSON.parse(localStorage.getItem(collectionName) || '[]');
-        const filtered = leads.filter(l => l.id !== leadId);
-        localStorage.setItem(collectionName, JSON.stringify(filtered));
+        const docRef = doc(db, collectionName, leadId);
+        await deleteDoc(docRef);
     } catch (error) {
         console.error('Error deleting lead:', error);
         throw error;
@@ -303,3 +245,5 @@ window.FirebaseDB = {
     // Constants
     COLLECTIONS
 };
+
+console.log('🔥 Firebase initialized successfully for Amrut Landing Page');
