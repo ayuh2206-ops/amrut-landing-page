@@ -85,6 +85,11 @@
             50% { box-shadow: 0 0 30px rgba(249, 116, 21, 0.5); border-color: rgba(249, 116, 21, 0.6); }
         }
         .animate-glow-border { animation: golden-glow 3s infinite ease-in-out; }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.02); }
+        }
+        .animate-pulse-glow { animation: pulse-glow 2s infinite ease-in-out; }
     </style>
 </head>
 <body class="bg-background-light font-display text-[#181411] antialiased overflow-x-hidden selection:bg-primary selection:text-white">
@@ -103,6 +108,8 @@
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkLMbRf4iE7kY2avE0rfrNdUez_8CZ_4UXuw&s" alt="AMRUT Scheme" class="h-8 md:h-12 w-auto object-contain"/>
                 <div class="h-6 md:h-10 w-px bg-gray-300"></div>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCevqyzpBWfFThoNtLjc_43tt8cxj28R22Mg&s" alt="Digital India" class="h-8 md:h-12 w-auto object-contain"/>
+                <div class="h-6 md:h-10 w-px bg-gray-300"></div>
+                <img src="https://www.dnyanjyoti.com/wp-content/uploads/2025/03/Logo-Dnyanjyoti-Copy.png" alt="Dnyanjyoti" class="h-8 md:h-12 w-auto object-contain"/>
             </div>
             
             <div class="hidden lg:flex flex-1 justify-end gap-8 items-center">
@@ -215,8 +222,15 @@
             <div id="about" class="py-6 lg:py-24 bg-white relative overflow-hidden w-full px-4 sm:px-6 lg:px-20 mt-4 lg:mt-12">
                 <div class="max-w-[1440px] mx-auto flex flex-col gap-6 lg:gap-12 relative z-10">
                     <div class="text-center max-w-3xl mx-auto">
-                        <h2 class="text-2xl md:text-4xl font-extrabold text-slate-head mb-2 lg:mb-4">पात्रता आणि <span class="text-primary">कार्यक्रमाचे फायदे</span></h2>
-                        <p class="text-slate-500 text-sm lg:text-lg">अमृत कौशल्य उद्यम विकास योजनेद्वारे तुमची क्षमता ओळखा.</p>
+                        <h2 class="text-2xl md:text-4xl font-extrabold text-slate-head mb-3 lg:mb-5">पात्रता आणि <span class="text-primary">कार्यक्रमाचे फायदे</span></h2>
+                        <div class="inline-block relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-red-500 via-orange-500 to-red-500 rounded-xl blur-md opacity-60 animate-pulse-glow"></div>
+                            <p class="relative bg-gradient-to-r from-red-600 to-orange-600 text-white text-sm lg:text-xl font-extrabold px-6 py-3 rounded-xl shadow-lg border-2 border-white/20">
+                                <span class="material-symbols-outlined text-yellow-300 text-[18px] lg:text-[24px] align-middle mr-2 animate-bounce-slow">lightbulb</span>
+                                नोकरी देणे हा उद्देश नाही. व्यावसायिक घडविणे हाच आहे
+                                <span class="material-symbols-outlined text-yellow-300 text-[18px] lg:text-[24px] align-middle ml-2 animate-bounce-slow">rocket_launch</span>
+                            </p>
+                        </div>
                     </div>
                     
                     <!-- Mobile Optimized Grid -->
@@ -279,7 +293,7 @@
                             </div>
                             <div>
                                 <p class="text-slate-500 text-xs font-semibold mb-1 uppercase tracking-wide">वार्षिक उत्पन्न</p>
-                                <h4 class="text-xl lg:text-3xl font-extrabold text-slate-900">&lt; 8 लाख</h4>
+                                <h4 class="text-xl lg:text-3xl font-extrabold text-slate-900">8 लाख</h4>
                                 <p class="text-xs text-slate-400 mt-1">वैध प्रमाणपत्र आवश्यक</p>
                             </div>
                         </div>
@@ -310,14 +324,6 @@
                                 <div class="flex items-center gap-2 px-3 lg:px-5 py-2 lg:py-3 rounded-lg lg:rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-semibold text-sm">
                                     <span class="material-symbols-outlined text-primary text-[16px] lg:text-[20px]">looks_two</span>
                                     <span>12 वी उत्तीर्ण</span>
-                                </div>
-                                <div class="flex items-center gap-2 px-3 lg:px-5 py-2 lg:py-3 rounded-lg lg:rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-semibold text-sm">
-                                    <span class="material-symbols-outlined text-primary text-[16px] lg:text-[20px]">history_edu</span>
-                                    <span>पदवीधर</span>
-                                </div>
-                                <div class="flex items-center gap-2 px-3 lg:px-5 py-2 lg:py-3 rounded-lg lg:rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-semibold text-sm">
-                                    <span class="material-symbols-outlined text-primary text-[16px] lg:text-[20px]">engineering</span>
-                                    <span>पदविका</span>
                                 </div>
                             </div>
                         </div>
@@ -351,7 +357,7 @@
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <span class="material-symbols-outlined text-green-500 text-[16px] lg:text-[20px]">check_circle</span>
-                                    <p class="text-slate-600 text-xs lg:text-sm">उत्पन्नाचा दाखला (&lt; 8 लाख)</p>
+                                    <p class="text-slate-600 text-xs lg:text-sm">उत्पन्नाचा दाखला (8 लाख)</p>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <span class="material-symbols-outlined text-green-500 text-[16px] lg:text-[20px]">check_circle</span>
